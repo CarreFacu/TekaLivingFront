@@ -1,16 +1,37 @@
-import React from 'react'
-import Title from "./components/Title/Title";
-import Label from "./components/Label/Label";
-import Input from "./components/Input/Input";
+import React, {useState} from 'react'
+import './Login.css'
+import {Grid, Button} from '@mui/material';
+import TextField from "@mui/material/TextField";
 const Login = () => {
+    const [inputs, setInputs ] = useState({
+        email: '',
+        contraseña: ''
+    })
+    const handleChange = (e) =>{
+        setInputs((prevState)=>({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+
+    const HandleSubmit = (e) =>{
+        e.preventDefault()
+        console.log(inputs)
+    }
     return (
-        <div>
-            <Title text = ' Hola no se que hago aca '/>
-            <Label text = ' Usuario '/>
-            <Input/>
-            <Label text = ' Password '/>
-            <Input text = 'password'/>
-        </div>
+        <form onSubmit={HandleSubmit}>
+            <Grid className='fondo'>
+                <Grid item md={12} className='inputs'>
+                    <TextField id="outlined-basic" label="Email" variant="outlined" onChange={handleChange} value={inputs.email || ' '} name='email'/>
+                </Grid>
+                <Grid item md={12} className='inputs' >
+                    <TextField className='inputs' type="password" id="outlined-basic" label="Contraseña" variant="outlined" onChange={handleChange} value={inputs.contraseña || ' '} name='contraseña'/>
+                </Grid>
+                <Grid item md={12} className="inputs">
+                    <Button type='submit' variant="contained">Log In</Button>
+                </Grid>
+            </Grid>
+        </form>
      );
 }
  

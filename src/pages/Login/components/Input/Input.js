@@ -7,9 +7,7 @@ const Input = ({text}) => {
             <TextField
                 required
                 id="outlined-required"
-                label="Required"
                 type={text}
-                defaultValue="Hello World"
             />
         </div>
     );
