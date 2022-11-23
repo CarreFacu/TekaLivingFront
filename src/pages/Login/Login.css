@@ -1,3 +1,15 @@
 .inputs{
     padding-top: 20px;
 }
+.itemImg{
+    width: 100%;
+}
+.login{
+    background: #61dafb;
+}
+.background-login{
+    background-image: url("/src/assets/images/mueble1.jpg") ;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
